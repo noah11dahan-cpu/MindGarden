@@ -1,20 +1,39 @@
-﻿from fastapi import FastAPI
+﻿# app/main.py
+from contextlib import asynccontextmanager
+
+from fastapi import FastAPI
 from pydantic import BaseModel
-from dotenv import load_dotenv
-import os
-from sqlalchemy import create_engine, text
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy import text
 
-load_dotenv()
-DB_URL = os.getenv("DB_URL", "sqlite:///app.db")
-engine = create_engine(DB_URL, connect_args={"check_same_thread": False} if DB_URL.startswith("sqlite") else {})
-SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
+from .db import engine, Base
+from . import models  # ensure models are imported
+from .routes_auth import router as auth_router
 
-app = FastAPI(title="MindGarden API", version="0.1.0")
 
 class HealthStatus(BaseModel):
     status: str
     db_ok: bool
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # This runs on startup
+    Base.metadata.create_all(bind=engine)
+    yield
+    # If you ever need shutdown logic, put it after yield
+
+
+app = FastAPI(
+    title="MindGarden API",
+    version="0.1.0",
+    lifespan=lifespan,
+)
+
+
+@app.get("/")
+def root():
+    return {"message": "MindGarden API is running"}
+
 
 @app.get("/healthz", response_model=HealthStatus)
 def healthz():
@@ -24,3 +43,6 @@ def healthz():
         return HealthStatus(status="ok", db_ok=True)
     except Exception:
         return HealthStatus(status="ok", db_ok=False)
+
+
+app.include_router(auth_router)
