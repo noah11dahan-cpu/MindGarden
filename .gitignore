@@ -1,0 +1,36 @@
+﻿# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pkl
+*.egg-info/
+.eggs/
+.build/
+dist/
+pip-wheel-metadata/
+
+# --- Virtual env ---
+.venv/
+
+# --- Env / secrets ---
+.env
+*.env
+
+# --- SQLite / local data ---
+app.db
+*.sqlite3
+
+# --- Test / coverage / cache ---
+.pytest_cache/
+.coverage
+htmlcov/
+
+# --- Editors / OS junk ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- UVicorn logs (if you ever save) ---
+*.log
