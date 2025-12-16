@@ -6,8 +6,9 @@ from pydantic import BaseModel
 from sqlalchemy import text
 
 from .db import engine, Base
-from . import models  # ensure models are imported
+from . import models  # ensure models are imported so tables are registered
 from .routes_auth import router as auth_router
+from .routes_habits import router as habits_router
 
 
 class HealthStatus(BaseModel):
@@ -42,7 +43,10 @@ def healthz():
             conn.execute(text("SELECT 1"))
         return HealthStatus(status="ok", db_ok=True)
     except Exception:
-        return HealthStatus(status="ok", db_ok=False)
+        # small fix: if DB check fails, reflect that in status
+        return HealthStatus(status="error", db_ok=False)
 
 
+# Routers
 app.include_router(auth_router)
+app.include_router(habits_router)
