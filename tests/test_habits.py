@@ -1,10 +1,6 @@
 import uuid
-from fastapi.testclient import TestClient
-from app.main import app
 
-client = TestClient(app)
-
-def test_free_tier_max_3_habits():
+def test_free_tier_max_3_habits(client):
     email = f"auth_test_{uuid.uuid4().hex}@example.com"
     payload = {"email": email, "password": "strongpassword123"}
 

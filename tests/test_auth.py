@@ -1,12 +1,8 @@
 # tests/test_auth.py
-from fastapi.testclient import TestClient
-from app.main import app
 import uuid
 
-client = TestClient(app)
 
-
-def test_signup_and_login():
+def test_signup_and_login(client):
     # Use a unique email each run so the first signup doesn't collide
     unique_email = f"auth_test_{uuid.uuid4().hex}@example.com"
 

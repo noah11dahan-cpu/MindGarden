@@ -9,6 +9,7 @@ from .db import engine, Base
 from . import models  # ensure models are imported so tables are registered
 from .routes_auth import router as auth_router
 from .routes_habits import router as habits_router
+from .routes_checkins import router as checkins_router
 
 
 class HealthStatus(BaseModel):
@@ -50,3 +51,4 @@ def healthz():
 # Routers
 app.include_router(auth_router)
 app.include_router(habits_router)
+app.include_router(checkins_router)
