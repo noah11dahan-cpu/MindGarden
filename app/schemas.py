@@ -80,3 +80,28 @@ class CheckinOut(BaseModel):
     mood: int
     note: Optional[str]
     habit_results: List[CheckinHabitResultOut]
+
+# --- Day 5: Insights schemas (ADD) ---
+from typing import Optional
+from datetime import date as date_type
+from pydantic import BaseModel
+
+try:
+    # Pydantic v2
+    from pydantic import ConfigDict
+except Exception:  # pragma: no cover
+    ConfigDict = None
+
+
+class InsightOut(BaseModel):
+    id: int
+    user_id: int
+    date: date_type
+    mood_avg_7d: Optional[float] = None
+    habit_streaks_json: str
+
+    if ConfigDict is not None:
+        model_config = ConfigDict(from_attributes=True)
+    else:
+        class Config:
+            orm_mode = True

@@ -1,7 +1,7 @@
 # app/models.py
 from datetime import datetime, date
 
-from sqlalchemy import Column, Integer, String, DateTime, Boolean, ForeignKey, Date, UniqueConstraint
+from sqlalchemy import Column, Integer, String, DateTime, Boolean, ForeignKey, Date, UniqueConstraint, Float, Text
 from sqlalchemy.orm import relationship
 
 from .db import Base
@@ -70,3 +70,27 @@ class CheckinHabitResult(Base):
 
     checkin = relationship("Checkin", back_populates="habit_results")
     habit = relationship("Habit")
+
+class Insight(Base):
+    __tablename__ = "insights"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False, index=True)
+
+    # The day this insight represents (usually "today")
+    date = Column(Date, nullable=False, index=True)
+
+    # 7-day mood average ending on `date` (nullable when no check-ins exist in window)
+    mood_avg_7d = Column(Float, nullable=True)
+
+    # Store computed streaks as JSON string (safe/simple for SQLite)
+    habit_streaks_json = Column(Text, nullable=False, default="{}")
+
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+
+    __table_args__ = (
+        UniqueConstraint("user_id", "date", name="uq_insights_user_date"),
+    )
+
+    user = relationship("User")
