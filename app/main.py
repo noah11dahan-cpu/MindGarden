@@ -2,6 +2,7 @@
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from sqlalchemy import text
 
@@ -20,16 +21,23 @@ class HealthStatus(BaseModel):
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # This runs on startup
     Base.metadata.create_all(bind=engine)
     yield
-    # If you ever need shutdown logic, put it after yield
 
 
 app = FastAPI(
     title="MindGarden API",
     version="0.1.0",
     lifespan=lifespan,
+)
+
+# CORS for React dev server (Vite)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origin_regex=r"http://(localhost|127\.0\.0\.1):\d+",
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 
@@ -45,11 +53,9 @@ def healthz():
             conn.execute(text("SELECT 1"))
         return HealthStatus(status="ok", db_ok=True)
     except Exception:
-        # small fix: if DB check fails, reflect that in status
         return HealthStatus(status="error", db_ok=False)
 
 
-# Routers
 app.include_router(auth_router)
 app.include_router(habits_router)
 app.include_router(checkins_router)
