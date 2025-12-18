@@ -15,7 +15,6 @@ export function DashboardPage() {
   const [doneByHabitId, setDoneByHabitId] = React.useState<Record<number, boolean>>({});
   const [status, setStatus] = React.useState("");
 
-  // --- Day 7: AI suggestion UI state (ADD) ---
   const [aiStatus, setAiStatus] = React.useState("");
   const [aiSuggestion, setAiSuggestion] = React.useState<string | null>(null);
   const [aiTone, setAiTone] = React.useState<string | null>(null);
