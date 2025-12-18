@@ -1,5 +1,5 @@
 import React from "react";
-import { apiFetch } from "../lib/api";
+import { apiFetch, getAiSuggestion } from "../lib/api";
 import { CONFIG } from "../config";
 import { todayISO } from "../lib/date";
 import { formatErr } from "../lib/format";
@@ -14,6 +14,11 @@ export function DashboardPage() {
   const [note, setNote] = React.useState("");
   const [doneByHabitId, setDoneByHabitId] = React.useState<Record<number, boolean>>({});
   const [status, setStatus] = React.useState("");
+
+  // --- Day 7: AI suggestion UI state (ADD) ---
+  const [aiStatus, setAiStatus] = React.useState("");
+  const [aiSuggestion, setAiSuggestion] = React.useState<string | null>(null);
+  const [aiTone, setAiTone] = React.useState<string | null>(null);
 
   const habitNameById = React.useMemo(() => {
     const m: Record<number, string> = {};
@@ -74,6 +79,19 @@ export function DashboardPage() {
     }
   }
 
+  // --- Day 7: AI suggestion fetch (ADD) ---
+  async function fetchTinyChallenge() {
+    setAiStatus("Thinking...");
+    try {
+      const data = await getAiSuggestion();
+      setAiSuggestion(data.suggestion);
+      setAiTone(data.tone);
+      setAiStatus("");
+    } catch (e: any) {
+      setAiStatus(formatErr(e));
+    }
+  }
+
   return (
     <div className="page">
       <h2>Dashboard</h2>
@@ -124,6 +142,37 @@ export function DashboardPage() {
             <button onClick={submitCheckin} disabled={habits.length === 0}>
               Submit check-in
             </button>
+
+            {/* --- Day 7: Tiny challenge button + output (ADD) --- */}
+            <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 10 }}>
+              <button type="button" onClick={fetchTinyChallenge}>
+                Give me a tiny challenge
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setAiSuggestion(null);
+                  setAiTone(null);
+                  setAiStatus("");
+                }}
+              >
+                Clear
+              </button>
+            </div>
+
+            {aiStatus && <div className="status">{aiStatus}</div>}
+
+            {aiSuggestion && (
+              <div className="card" style={{ marginTop: 12 }}>
+                <div className="card-header">
+                  <h3>Tiny Challenge</h3>
+                  <div className="muted" style={{ fontSize: 13 }}>
+                    Tone: {aiTone ?? "unknown"}
+                  </div>
+                </div>
+                <div style={{ paddingTop: 8 }}>{aiSuggestion}</div>
+              </div>
+            )}
           </div>
 
           {status && <div className="status">{status}</div>}

@@ -76,3 +76,12 @@ export async function signup(email: string, password: string): Promise<void> {
     body: JSON.stringify({ email, password }),
   });
 }
+export type AiSuggestion = {
+  suggestion: string;
+  tone: "gentle" | "neutral" | "pushy";
+  context?: any;
+};
+
+export async function getAiSuggestion(): Promise<AiSuggestion> {
+  return apiFetch<AiSuggestion>("/ai/suggestions", { method: "GET" });
+}
