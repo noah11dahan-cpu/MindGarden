@@ -13,7 +13,7 @@ from .routes_habits import router as habits_router
 from .routes_checkins import router as checkins_router
 from .routes_insights import router as insights_router
 from .routes_ai import router as ai_router
-
+from .routes_rag import router as rag_router
 
 
 class HealthStatus(BaseModel):
@@ -63,3 +63,4 @@ app.include_router(habits_router)
 app.include_router(checkins_router)
 app.include_router(insights_router)
 app.include_router(ai_router)
+app.include_router(rag_router)

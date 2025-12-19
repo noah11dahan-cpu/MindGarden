@@ -1,8 +1,9 @@
 # app/models.py
 from datetime import datetime, date
 
-from sqlalchemy import Column, Integer, String, DateTime, Boolean, ForeignKey, Date, UniqueConstraint, Float, Text
+from sqlalchemy import Column, Integer, String, DateTime, Boolean, ForeignKey, Date, UniqueConstraint, Float, Text, LargeBinary
 from sqlalchemy.orm import relationship
+
 
 from .db import Base
 
@@ -94,3 +95,19 @@ class Insight(Base):
     )
 
     user = relationship("User")
+class ReflectionEmbedding(Base):
+    __tablename__ = "reflection_embeddings"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False, index=True)
+    checkin_id = Column(Integer, ForeignKey("checkins.id"), nullable=False, index=True)
+
+    checkin_date = Column(Date, nullable=False, index=True)
+    text = Column(Text, nullable=False)
+
+    embedding = Column(LargeBinary, nullable=False)  # float32 bytes
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+
+    __table_args__ = (
+        UniqueConstraint("checkin_id", name="uq_reflection_embedding_checkin"),
+    )

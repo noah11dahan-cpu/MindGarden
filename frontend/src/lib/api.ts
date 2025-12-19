@@ -70,16 +70,29 @@ export async function login(email: string, password: string): Promise<string> {
   setToken(token);
   return token;
 }
+
 export async function signup(email: string, password: string): Promise<void> {
   await apiFetch("/auth/signup", {
     method: "POST",
     body: JSON.stringify({ email, password }),
   });
 }
+
+/** Day 8 (RAG): Retrieved reflection shape returned in ctx["retrieved_reflections"] */
+export type RetrievedReflection = {
+  score: number;
+  checkin_date: string;
+  text: string;
+  reflection_id: number;
+};
+
 export type AiSuggestion = {
   suggestion: string;
   tone: "gentle" | "neutral" | "pushy";
-  context?: any;
+  context?: {
+    retrieved_reflections?: RetrievedReflection[];
+    [key: string]: any;
+  };
 };
 
 export async function getAiSuggestion(): Promise<AiSuggestion> {

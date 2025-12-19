@@ -10,3 +10,6 @@ httpx
 python-multipart
 passlib
 python-jose
+numpy
+faiss-cpu
+sentence-transformers

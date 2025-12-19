@@ -1,5 +1,6 @@
 import React from "react";
 import { apiFetch, getAiSuggestion } from "../lib/api";
+import type { RetrievedReflection } from "../lib/api";
 import { CONFIG } from "../config";
 import { todayISO } from "../lib/date";
 import { formatErr } from "../lib/format";
@@ -18,6 +19,9 @@ export function DashboardPage() {
   const [aiStatus, setAiStatus] = React.useState("");
   const [aiSuggestion, setAiSuggestion] = React.useState<string | null>(null);
   const [aiTone, setAiTone] = React.useState<string | null>(null);
+
+  // Day 8: RAG memories shown in UI
+  const [aiMemories, setAiMemories] = React.useState<RetrievedReflection[]>([]);
 
   const habitNameById = React.useMemo(() => {
     const m: Record<number, string> = {};
@@ -85,6 +89,11 @@ export function DashboardPage() {
       const data = await getAiSuggestion();
       setAiSuggestion(data.suggestion);
       setAiTone(data.tone);
+
+      // Day 8: Extract RAG memories from the AI context (if present)
+      const mem = data?.context?.retrieved_reflections;
+      setAiMemories(Array.isArray(mem) ? mem : []);
+
       setAiStatus("");
     } catch (e: any) {
       setAiStatus(formatErr(e));
@@ -153,6 +162,8 @@ export function DashboardPage() {
                   setAiSuggestion(null);
                   setAiTone(null);
                   setAiStatus("");
+                  // Day 8: clear memories too
+                  setAiMemories([]);
                 }}
               >
                 Clear
@@ -169,7 +180,32 @@ export function DashboardPage() {
                     Tone: {aiTone ?? "unknown"}
                   </div>
                 </div>
+
                 <div style={{ paddingTop: 8 }}>{aiSuggestion}</div>
+
+                {/* Day 8: RAG memories panel */}
+                <div style={{ marginTop: 12 }}>
+                  <div className="label">Relevant past notes</div>
+
+                  {aiMemories.length === 0 ? (
+                    <div className="muted">
+                      No relevant past notes found yet. Add notes to your check-ins to unlock memory.
+                    </div>
+                  ) : (
+                    <div className="list" style={{ marginTop: 6 }}>
+                      {aiMemories.slice(0, 5).map((m) => (
+                        <div key={m.reflection_id} className="row between" style={{ gap: 10 }}>
+                          <div style={{ flex: 1 }}>
+                            <div className="muted" style={{ fontSize: 12, marginBottom: 4 }}>
+                              {m.checkin_date}
+                            </div>
+                            <div>{m.text}</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
             )}
           </div>

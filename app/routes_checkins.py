@@ -5,6 +5,8 @@ from sqlalchemy.orm import Session
 from .db import get_db
 from . import models, schemas
 from .security import get_current_user
+from .embedding_model import get_embedder
+from .rag_store import get_rag_store
 
 router = APIRouter(prefix="/checkins", tags=["checkins"])
 
@@ -58,6 +60,13 @@ def create_checkin(
 
     try:
         db.flush()  # assign checkin.id before inserting results
+        try:
+            embedder = get_embedder()
+            rag = get_rag_store(embedder) if embedder is not None else None
+            if rag is not None:
+                rag.add_reflection_for_checkin(db=db, user_id=current_user.id, checkin=checkin)
+        except Exception:
+            pass  # silently ignore RAG errors
 
         for hr in checkin_in.habit_results:
             db.add(
@@ -79,3 +88,4 @@ def create_checkin(
             status_code=status.HTTP_409_CONFLICT,
             detail="Check-in already exists for this date.",
         )
+    
