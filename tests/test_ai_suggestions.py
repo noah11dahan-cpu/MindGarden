@@ -1,6 +1,7 @@
 import os
 import re
 from datetime import date, timedelta
+from uuid import uuid4  # NEW
 
 
 def _count_sentences(s: str) -> int:
@@ -8,7 +9,7 @@ def _count_sentences(s: str) -> int:
 
 
 def _signup_and_login_get_token(client) -> str:
-    email = "ai_test@example.com"
+    email = f"ai_test_{uuid4().hex[:8]}@example.com"  # CHANGED (unique per test run)
     password = "strongpassword123"
 
     # signup (may already exist if tests reuse DB; ignore failure if 400)

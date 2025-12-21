@@ -163,3 +163,56 @@ async def maybe_ollama_polish(suggestion: str, tone: str, ctx: Dict[str, Any]) -
         return out
     except Exception:
         return suggestion
+async def maybe_ollama_polish_with_provider(
+    suggestion: str,
+    tone: str,
+    ctx: Dict[str, Any],
+) -> tuple[str, str]:
+    provider = os.getenv("AI_PROVIDER", "hybrid").lower()
+    if provider not in ("hybrid", "ollama"):
+        return suggestion, "rules"
+
+    ollama_url = os.getenv("OLLAMA_URL", "").strip()
+    if not ollama_url:
+        return suggestion, "rules"
+
+    model = os.getenv("OLLAMA_MODEL", "llama3").strip()
+
+    prompt = (
+        "Rewrite the following as a personalized tiny challenge.\n"
+        "Constraints: 1 to 2 sentences, no lists, no emojis.\n"
+        f"Tone target: {tone}\n"
+        f"Context: {ctx}\n"
+        f"Text: {suggestion}\n"
+        "Return only the rewritten text."
+    )
+
+    try:
+        async with httpx.AsyncClient(timeout=3.0) as client:
+            resp = await client.post(
+                f"{ollama_url.rstrip('/')}/api/generate",
+                json={"model": model, "prompt": prompt, "stream": False},
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            out = (data.get("response") or "").strip()
+
+        if not out:
+            return suggestion, "rules"
+        if _sentences_count(out) > 2:
+            return suggestion, "rules"
+        if len(out) > 260:
+            return suggestion, "rules"
+
+        return out, "ollama"
+    except Exception:
+        return suggestion, "rules"
+
+
+async def maybe_ollama_polish(suggestion: str, tone: str, ctx: Dict[str, Any]) -> str:
+    """Backwards-compatible wrapper.
+
+    Returns only the suggestion text (original behavior).
+    """
+    out, _provider = await maybe_ollama_polish_with_provider(suggestion, tone, ctx)
+    return out

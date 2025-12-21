@@ -14,7 +14,9 @@ from .routes_checkins import router as checkins_router
 from .routes_insights import router as insights_router
 from .routes_ai import router as ai_router
 from .routes_rag import router as rag_router
-
+from .routes_metrics import router as metrics_router
+from .observability.logging_config import configure_logging
+from .observability.middleware import RequestLoggingMiddleware
 
 class HealthStatus(BaseModel):
     status: str
@@ -32,6 +34,10 @@ app = FastAPI(
     version="0.1.0",
     lifespan=lifespan,
 )
+
+# NEW (Day 10): logging config + request timing/user logging middleware
+configure_logging()
+app.add_middleware(RequestLoggingMiddleware)
 
 # CORS for React dev server (Vite)
 app.add_middleware(
@@ -64,3 +70,4 @@ app.include_router(checkins_router)
 app.include_router(insights_router)
 app.include_router(ai_router)
 app.include_router(rag_router)
+app.include_router(metrics_router)  # NEW (Day 10)

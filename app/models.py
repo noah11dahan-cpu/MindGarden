@@ -111,3 +111,26 @@ class ReflectionEmbedding(Base):
     __table_args__ = (
         UniqueConstraint("checkin_id", name="uq_reflection_embedding_checkin"),
     )
+class AIRequestEvent(Base):
+    __tablename__ = "ai_request_events"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False, index=True)
+    endpoint = Column(String, nullable=False, index=True)
+    provider = Column(String, nullable=False, default="rules")
+    latency_ms = Column(Integer, nullable=False)
+    success = Column(Boolean, nullable=False, default=True)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False, index=True)
+
+    user = relationship("User")
+
+
+class RateLimitEvent(Base):
+    __tablename__ = "rate_limit_events"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False, index=True)
+    endpoint = Column(String, nullable=False, index=True)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False, index=True)
+
+    user = relationship("User")
