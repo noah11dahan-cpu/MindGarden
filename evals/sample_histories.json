@@ -1,0 +1,2402 @@
+[
+  {
+    "case_id": "case_01_broken_streak",
+    "habits": [
+      "Workout",
+      "Read 10 pages",
+      "No sugar"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Busy day, slipped a bit.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": true,
+          "No sugar": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Felt scattered, hard to start.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": true,
+          "No sugar": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Cravings hit late.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": false,
+          "No sugar": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Stress spiked, low energy.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": false,
+          "No sugar": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Trying to get back on track.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": false,
+          "No sugar": false
+        }
+      },
+      {
+        "logged": false,
+        "mood": 3,
+        "note": "Small win: I showed up briefly.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": true,
+          "No sugar": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "I want momentum again.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": false,
+          "No sugar": false
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "case_02_broken_streak",
+    "habits": [
+      "Meditate",
+      "Study 45 min",
+      "Drink water"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Busy day, slipped a bit.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": true,
+          "Drink water": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Felt scattered, hard to start.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": true,
+          "Drink water": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Cravings hit late.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": false,
+          "Drink water": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Stress spiked, low energy.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": false,
+          "Drink water": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Trying to get back on track.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": false,
+          "Drink water": false
+        }
+      },
+      {
+        "logged": false,
+        "mood": 3,
+        "note": "Small win: I showed up briefly.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": true,
+          "Drink water": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "I want momentum again.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": false,
+          "Drink water": false
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "case_03_broken_streak",
+    "habits": [
+      "Sleep by 11",
+      "Journal",
+      "Walk"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Busy day, slipped a bit.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": true,
+          "Walk": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Felt scattered, hard to start.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": true,
+          "Walk": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Cravings hit late.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": false,
+          "Walk": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Stress spiked, low energy.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": false,
+          "Walk": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Trying to get back on track.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": false,
+          "Walk": false
+        }
+      },
+      {
+        "logged": false,
+        "mood": 3,
+        "note": "Small win: I showed up briefly.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": true,
+          "Walk": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "I want momentum again.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": false,
+          "Walk": false
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "case_04_broken_streak",
+    "habits": [
+      "Stretch",
+      "Plan tomorrow",
+      "No phone in bed"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Busy day, slipped a bit.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": true,
+          "No phone in bed": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Felt scattered, hard to start.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": true,
+          "No phone in bed": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Cravings hit late.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": false,
+          "No phone in bed": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Stress spiked, low energy.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": false,
+          "No phone in bed": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Trying to get back on track.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": false,
+          "No phone in bed": false
+        }
+      },
+      {
+        "logged": false,
+        "mood": 3,
+        "note": "Small win: I showed up briefly.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": true,
+          "No phone in bed": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "I want momentum again.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": false,
+          "No phone in bed": false
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "case_05_broken_streak",
+    "habits": [
+      "Code 30 min",
+      "Protein breakfast",
+      "Outside sunlight"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Busy day, slipped a bit.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": true,
+          "Outside sunlight": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Felt scattered, hard to start.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": true,
+          "Outside sunlight": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Cravings hit late.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": false,
+          "Outside sunlight": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Stress spiked, low energy.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": false,
+          "Outside sunlight": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Trying to get back on track.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": false,
+          "Outside sunlight": false
+        }
+      },
+      {
+        "logged": false,
+        "mood": 3,
+        "note": "Small win: I showed up briefly.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": true,
+          "Outside sunlight": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "I want momentum again.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": false,
+          "Outside sunlight": false
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "case_06_broken_streak",
+    "habits": [
+      "Workout",
+      "Read 10 pages",
+      "No sugar"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Busy day, slipped a bit.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": true,
+          "No sugar": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Felt scattered, hard to start.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": true,
+          "No sugar": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Cravings hit late.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": false,
+          "No sugar": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Stress spiked, low energy.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": false,
+          "No sugar": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Trying to get back on track.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": false,
+          "No sugar": false
+        }
+      },
+      {
+        "logged": false,
+        "mood": 3,
+        "note": "Small win: I showed up briefly.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": true,
+          "No sugar": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "I want momentum again.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": false,
+          "No sugar": false
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "case_07_broken_streak",
+    "habits": [
+      "Meditate",
+      "Study 45 min",
+      "Drink water"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Busy day, slipped a bit.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": true,
+          "Drink water": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Felt scattered, hard to start.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": true,
+          "Drink water": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Cravings hit late.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": false,
+          "Drink water": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Stress spiked, low energy.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": false,
+          "Drink water": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Trying to get back on track.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": false,
+          "Drink water": false
+        }
+      },
+      {
+        "logged": false,
+        "mood": 3,
+        "note": "Small win: I showed up briefly.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": true,
+          "Drink water": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "I want momentum again.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": false,
+          "Drink water": false
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "case_08_broken_streak",
+    "habits": [
+      "Sleep by 11",
+      "Journal",
+      "Walk"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Busy day, slipped a bit.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": true,
+          "Walk": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Felt scattered, hard to start.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": true,
+          "Walk": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Cravings hit late.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": false,
+          "Walk": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Stress spiked, low energy.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": false,
+          "Walk": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Trying to get back on track.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": false,
+          "Walk": false
+        }
+      },
+      {
+        "logged": false,
+        "mood": 3,
+        "note": "Small win: I showed up briefly.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": true,
+          "Walk": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "I want momentum again.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": false,
+          "Walk": false
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "case_09_broken_streak",
+    "habits": [
+      "Stretch",
+      "Plan tomorrow",
+      "No phone in bed"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Busy day, slipped a bit.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": true,
+          "No phone in bed": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Felt scattered, hard to start.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": true,
+          "No phone in bed": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Cravings hit late.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": false,
+          "No phone in bed": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Stress spiked, low energy.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": false,
+          "No phone in bed": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Trying to get back on track.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": false,
+          "No phone in bed": false
+        }
+      },
+      {
+        "logged": false,
+        "mood": 3,
+        "note": "Small win: I showed up briefly.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": true,
+          "No phone in bed": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "I want momentum again.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": false,
+          "No phone in bed": false
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "case_10_broken_streak",
+    "habits": [
+      "Code 30 min",
+      "Protein breakfast",
+      "Outside sunlight"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Busy day, slipped a bit.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": true,
+          "Outside sunlight": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Felt scattered, hard to start.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": true,
+          "Outside sunlight": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Cravings hit late.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": false,
+          "Outside sunlight": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Stress spiked, low energy.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": false,
+          "Outside sunlight": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Trying to get back on track.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": false,
+          "Outside sunlight": false
+        }
+      },
+      {
+        "logged": false,
+        "mood": 3,
+        "note": "Small win: I showed up briefly.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": true,
+          "Outside sunlight": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "I want momentum again.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": false,
+          "Outside sunlight": false
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "case_11_consistent",
+    "habits": [
+      "Workout",
+      "Read 10 pages",
+      "No sugar"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Routine felt smooth.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": true,
+          "No sugar": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Stayed consistent.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": true,
+          "No sugar": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 5,
+        "note": "Good focus today.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": true,
+          "No sugar": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Solid day, no drama.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": true,
+          "No sugar": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Kept the streak alive.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": true,
+          "No sugar": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Productive and calm.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": true,
+          "No sugar": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 5,
+        "note": "Feeling strong.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": true,
+          "No sugar": true
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "case_12_consistent",
+    "habits": [
+      "Meditate",
+      "Study 45 min",
+      "Drink water"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Routine felt smooth.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": true,
+          "Drink water": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Stayed consistent.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": true,
+          "Drink water": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 5,
+        "note": "Good focus today.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": true,
+          "Drink water": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Solid day, no drama.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": true,
+          "Drink water": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Kept the streak alive.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": true,
+          "Drink water": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Productive and calm.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": true,
+          "Drink water": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 5,
+        "note": "Feeling strong.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": true,
+          "Drink water": true
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "case_13_consistent",
+    "habits": [
+      "Sleep by 11",
+      "Journal",
+      "Walk"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Routine felt smooth.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": true,
+          "Walk": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Stayed consistent.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": true,
+          "Walk": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 5,
+        "note": "Good focus today.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": true,
+          "Walk": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Solid day, no drama.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": true,
+          "Walk": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Kept the streak alive.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": true,
+          "Walk": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Productive and calm.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": true,
+          "Walk": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 5,
+        "note": "Feeling strong.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": true,
+          "Walk": true
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "case_14_consistent",
+    "habits": [
+      "Stretch",
+      "Plan tomorrow",
+      "No phone in bed"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Routine felt smooth.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": true,
+          "No phone in bed": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Stayed consistent.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": true,
+          "No phone in bed": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 5,
+        "note": "Good focus today.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": true,
+          "No phone in bed": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Solid day, no drama.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": true,
+          "No phone in bed": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Kept the streak alive.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": true,
+          "No phone in bed": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Productive and calm.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": true,
+          "No phone in bed": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 5,
+        "note": "Feeling strong.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": true,
+          "No phone in bed": true
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "case_15_consistent",
+    "habits": [
+      "Code 30 min",
+      "Protein breakfast",
+      "Outside sunlight"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Routine felt smooth.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": true,
+          "Outside sunlight": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Stayed consistent.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": true,
+          "Outside sunlight": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 5,
+        "note": "Good focus today.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": true,
+          "Outside sunlight": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Solid day, no drama.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": true,
+          "Outside sunlight": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Kept the streak alive.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": true,
+          "Outside sunlight": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Productive and calm.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": true,
+          "Outside sunlight": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 5,
+        "note": "Feeling strong.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": true,
+          "Outside sunlight": true
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "case_16_consistent",
+    "habits": [
+      "Workout",
+      "Read 10 pages",
+      "No sugar"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Routine felt smooth.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": true,
+          "No sugar": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Stayed consistent.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": true,
+          "No sugar": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 5,
+        "note": "Good focus today.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": true,
+          "No sugar": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Solid day, no drama.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": true,
+          "No sugar": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Kept the streak alive.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": true,
+          "No sugar": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Productive and calm.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": true,
+          "No sugar": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 5,
+        "note": "Feeling strong.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": true,
+          "No sugar": true
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "case_17_consistent",
+    "habits": [
+      "Meditate",
+      "Study 45 min",
+      "Drink water"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Routine felt smooth.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": true,
+          "Drink water": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Stayed consistent.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": true,
+          "Drink water": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 5,
+        "note": "Good focus today.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": true,
+          "Drink water": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Solid day, no drama.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": true,
+          "Drink water": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Kept the streak alive.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": true,
+          "Drink water": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Productive and calm.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": true,
+          "Drink water": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 5,
+        "note": "Feeling strong.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": true,
+          "Drink water": true
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "case_18_consistent",
+    "habits": [
+      "Sleep by 11",
+      "Journal",
+      "Walk"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Routine felt smooth.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": true,
+          "Walk": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Stayed consistent.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": true,
+          "Walk": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 5,
+        "note": "Good focus today.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": true,
+          "Walk": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Solid day, no drama.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": true,
+          "Walk": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Kept the streak alive.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": true,
+          "Walk": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Productive and calm.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": true,
+          "Walk": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 5,
+        "note": "Feeling strong.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": true,
+          "Walk": true
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "case_19_consistent",
+    "habits": [
+      "Stretch",
+      "Plan tomorrow",
+      "No phone in bed"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Routine felt smooth.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": true,
+          "No phone in bed": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Stayed consistent.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": true,
+          "No phone in bed": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 5,
+        "note": "Good focus today.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": true,
+          "No phone in bed": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Solid day, no drama.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": true,
+          "No phone in bed": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Kept the streak alive.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": true,
+          "No phone in bed": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Productive and calm.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": true,
+          "No phone in bed": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 5,
+        "note": "Feeling strong.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": true,
+          "No phone in bed": true
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "case_20_consistent",
+    "habits": [
+      "Code 30 min",
+      "Protein breakfast",
+      "Outside sunlight"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Routine felt smooth.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": true,
+          "Outside sunlight": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Stayed consistent.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": true,
+          "Outside sunlight": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 5,
+        "note": "Good focus today.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": true,
+          "Outside sunlight": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Solid day, no drama.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": true,
+          "Outside sunlight": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Kept the streak alive.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": true,
+          "Outside sunlight": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 4,
+        "note": "Productive and calm.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": true,
+          "Outside sunlight": true
+        }
+      },
+      {
+        "logged": true,
+        "mood": 5,
+        "note": "Feeling strong.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": true,
+          "Outside sunlight": true
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "case_21_low_mood",
+    "habits": [
+      "Workout",
+      "Read 10 pages",
+      "No sugar"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Brain fog today.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": false,
+          "No sugar": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Low energy, but tried.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": false,
+          "No sugar": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Mood dipped in afternoon.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": false,
+          "No sugar": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Did one small thing.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": true,
+          "No sugar": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Still heavy, want something doable.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": false,
+          "No sugar": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Slept poorly, trying again.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": false,
+          "No sugar": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Slightly better today.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": true,
+          "No sugar": false
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "case_22_low_mood",
+    "habits": [
+      "Meditate",
+      "Study 45 min",
+      "Drink water"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Brain fog today.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": false,
+          "Drink water": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Low energy, but tried.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": false,
+          "Drink water": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Mood dipped in afternoon.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": false,
+          "Drink water": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Did one small thing.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": true,
+          "Drink water": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Still heavy, want something doable.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": false,
+          "Drink water": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Slept poorly, trying again.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": false,
+          "Drink water": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Slightly better today.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": true,
+          "Drink water": false
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "case_23_low_mood",
+    "habits": [
+      "Sleep by 11",
+      "Journal",
+      "Walk"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Brain fog today.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": false,
+          "Walk": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Low energy, but tried.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": false,
+          "Walk": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Mood dipped in afternoon.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": false,
+          "Walk": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Did one small thing.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": true,
+          "Walk": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Still heavy, want something doable.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": false,
+          "Walk": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Slept poorly, trying again.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": false,
+          "Walk": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Slightly better today.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": true,
+          "Walk": false
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "case_24_low_mood",
+    "habits": [
+      "Stretch",
+      "Plan tomorrow",
+      "No phone in bed"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Brain fog today.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": false,
+          "No phone in bed": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Low energy, but tried.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": false,
+          "No phone in bed": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Mood dipped in afternoon.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": false,
+          "No phone in bed": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Did one small thing.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": true,
+          "No phone in bed": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Still heavy, want something doable.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": false,
+          "No phone in bed": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Slept poorly, trying again.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": false,
+          "No phone in bed": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Slightly better today.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": true,
+          "No phone in bed": false
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "case_25_low_mood",
+    "habits": [
+      "Code 30 min",
+      "Protein breakfast",
+      "Outside sunlight"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Brain fog today.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": false,
+          "Outside sunlight": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Low energy, but tried.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": false,
+          "Outside sunlight": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Mood dipped in afternoon.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": false,
+          "Outside sunlight": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Did one small thing.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": true,
+          "Outside sunlight": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Still heavy, want something doable.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": false,
+          "Outside sunlight": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Slept poorly, trying again.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": false,
+          "Outside sunlight": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Slightly better today.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": true,
+          "Outside sunlight": false
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "case_26_low_mood",
+    "habits": [
+      "Workout",
+      "Read 10 pages",
+      "No sugar"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Brain fog today.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": false,
+          "No sugar": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Low energy, but tried.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": false,
+          "No sugar": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Mood dipped in afternoon.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": false,
+          "No sugar": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Did one small thing.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": true,
+          "No sugar": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Still heavy, want something doable.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": false,
+          "No sugar": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Slept poorly, trying again.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": false,
+          "No sugar": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Slightly better today.",
+        "results": {
+          "Workout": true,
+          "Read 10 pages": true,
+          "No sugar": false
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "case_27_low_mood",
+    "habits": [
+      "Meditate",
+      "Study 45 min",
+      "Drink water"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Brain fog today.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": false,
+          "Drink water": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Low energy, but tried.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": false,
+          "Drink water": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Mood dipped in afternoon.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": false,
+          "Drink water": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Did one small thing.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": true,
+          "Drink water": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Still heavy, want something doable.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": false,
+          "Drink water": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Slept poorly, trying again.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": false,
+          "Drink water": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Slightly better today.",
+        "results": {
+          "Meditate": true,
+          "Study 45 min": true,
+          "Drink water": false
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "case_28_low_mood",
+    "habits": [
+      "Sleep by 11",
+      "Journal",
+      "Walk"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Brain fog today.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": false,
+          "Walk": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Low energy, but tried.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": false,
+          "Walk": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Mood dipped in afternoon.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": false,
+          "Walk": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Did one small thing.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": true,
+          "Walk": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Still heavy, want something doable.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": false,
+          "Walk": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Slept poorly, trying again.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": false,
+          "Walk": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Slightly better today.",
+        "results": {
+          "Sleep by 11": true,
+          "Journal": true,
+          "Walk": false
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "case_29_low_mood",
+    "habits": [
+      "Stretch",
+      "Plan tomorrow",
+      "No phone in bed"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Brain fog today.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": false,
+          "No phone in bed": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Low energy, but tried.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": false,
+          "No phone in bed": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Mood dipped in afternoon.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": false,
+          "No phone in bed": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Did one small thing.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": true,
+          "No phone in bed": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Still heavy, want something doable.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": false,
+          "No phone in bed": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Slept poorly, trying again.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": false,
+          "No phone in bed": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Slightly better today.",
+        "results": {
+          "Stretch": true,
+          "Plan tomorrow": true,
+          "No phone in bed": false
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "case_30_low_mood",
+    "habits": [
+      "Code 30 min",
+      "Protein breakfast",
+      "Outside sunlight"
+    ],
+    "days": [
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Brain fog today.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": false,
+          "Outside sunlight": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Low energy, but tried.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": false,
+          "Outside sunlight": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Mood dipped in afternoon.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": false,
+          "Outside sunlight": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Did one small thing.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": true,
+          "Outside sunlight": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Still heavy, want something doable.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": false,
+          "Outside sunlight": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 2,
+        "note": "Slept poorly, trying again.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": false,
+          "Outside sunlight": false
+        }
+      },
+      {
+        "logged": true,
+        "mood": 3,
+        "note": "Slightly better today.",
+        "results": {
+          "Code 30 min": true,
+          "Protein breakfast": true,
+          "Outside sunlight": false
+        }
+      }
+    ]
+  }
+]
