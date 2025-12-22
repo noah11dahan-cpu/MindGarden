@@ -20,6 +20,8 @@ pip-wheel-metadata/
 # --- SQLite / local data ---
 app.db
 *.sqlite3
+.db
+
 
 # --- Test / coverage / cache ---
 .pytest_cache/

@@ -3,11 +3,12 @@ from __future__ import annotations
 import time
 from datetime import datetime
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Body
 from sqlalchemy.orm import Session
 
 from app.db import get_db
 from .security import get_current_user
+from .entitlements import require_premium
 
 from app.services.ai_suggestions import (
     fetch_last_7_checkins,
@@ -107,3 +108,25 @@ async def get_ai_suggestions(
             db.commit()
         except Exception:
             db.rollback()
+
+
+@router.post("/deep_dive")
+async def deep_dive(
+    payload: dict = Body(...),
+    db: Session = Depends(get_db),
+    user=Depends(get_current_user),
+    _rl=Depends(rate_limit(endpoint_key="/ai/deep_dive", limit=10, window_seconds=3600)),
+):
+    # Monetization hook: premium-only deep dive session
+    require_premium(user)
+
+    topic = (payload.get("topic") or "").strip() or "my habits and next week"
+
+    # Minimal "deep dive" response (longer than /suggestions). Keep deterministic for tests/demos.
+    response = (
+        f"Deep dive on {topic}: identify your highest-impact habit and the smallest daily action that preserves it. "
+        "Then pick one friction point (time, place, trigger, or people) and remove it with a 2-minute fallback plan. "
+        "Finally, schedule a single 15-minute review this week to check progress and adjust."
+    )
+
+    return {"topic": topic, "response": response}

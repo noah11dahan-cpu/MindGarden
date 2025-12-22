@@ -19,6 +19,8 @@ export function setToken(token: string) {
 }
 export function clearToken() {
   localStorage.removeItem("mg_token");
+  // NEW: clear cached tier too
+  localStorage.removeItem("mg_tier");
 }
 
 async function parseJsonSafe(resp: Response): Promise<unknown> {
@@ -97,4 +99,61 @@ export type AiSuggestion = {
 
 export async function getAiSuggestion(): Promise<AiSuggestion> {
   return apiFetch<AiSuggestion>("/ai/suggestions", { method: "GET" });
+}
+
+// --------------------
+// NEW (Day 11 Premium)
+// --------------------
+
+export type SubscriptionTier = "free" | "premium";
+
+export function getTier(): SubscriptionTier {
+  const t = localStorage.getItem("mg_tier");
+  return t === "premium" ? "premium" : "free";
+}
+export function setTier(tier: SubscriptionTier) {
+  localStorage.setItem("mg_tier", tier);
+}
+
+export async function upgrade(): Promise<{ subscription_tier: SubscriptionTier }> {
+  const data = await apiFetch<{ subscription_tier: SubscriptionTier }>("/upgrade", { method: "POST" });
+  if (data?.subscription_tier === "premium" || data?.subscription_tier === "free") {
+    setTier(data.subscription_tier);
+  }
+  return data;
+}
+
+export async function deepDive(topic: string): Promise<{ topic: string; response: string }> {
+  return apiFetch<{ topic: string; response: string }>("/ai/deep_dive", {
+    method: "POST",
+    body: JSON.stringify({ topic }),
+  });
+}
+
+export type ExportReflectionsResponse = {
+  count: number;
+  reflections: Array<{ date: string; mood: number | null; note: string | null }>;
+};
+
+export async function exportReflections(): Promise<ExportReflectionsResponse> {
+  return apiFetch<ExportReflectionsResponse>("/export/reflections", { method: "GET" });
+}
+
+export type MetricsAnalyticsResponse = {
+  date_utc: string;
+  window_days: number;
+  window_start_utc: string;
+  checkins_window: number;
+  ai_suggestions_count_window: number;
+  ai_suggestions_latency_ms_avg_window: number | null;
+  ai_suggestions_latency_ms_p95_window: number | null;
+  subscription_tier: SubscriptionTier | string;
+};
+
+export async function metricsAnalytics(days: number): Promise<MetricsAnalyticsResponse> {
+  const data = await apiFetch<MetricsAnalyticsResponse>(`/metrics/analytics?days=${days}`, { method: "GET" });
+  // cache tier for UI
+  const t = data?.subscription_tier === "premium" ? "premium" : "free";
+  setTier(t);
+  return data;
 }

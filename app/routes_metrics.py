@@ -9,6 +9,10 @@ from sqlalchemy.orm import Session
 from .db import get_db
 from . import models
 
+# NEW (Day 11 Monetization hooks)
+from .security import get_current_user
+from .entitlements import require_premium
+
 router = APIRouter(tags=["metrics"])
 
 
@@ -84,3 +88,60 @@ def metrics(
 
     body = "\n".join(lines) + "\n"
     return Response(content=body, media_type="text/plain; version=0.0.4")
+
+
+# NEW (Day 11): authenticated analytics window (freemium gate >30 days)
+@router.get("/metrics/analytics")
+def metrics_analytics(
+    days: int = Query(7, ge=1, le=365),
+    db: Session = Depends(get_db),
+    current_user: models.User = Depends(get_current_user),
+):
+    """
+    Long-term analytics hook:
+    - Free: up to 30 days
+    - Premium: >30 days
+    """
+
+    if days > 30:
+        require_premium(current_user)
+
+    today = datetime.utcnow().date()
+    window_start = today - timedelta(days=days - 1)
+
+    # Check-ins in window (inclusive)
+    checkins_window = (
+        db.query(models.Checkin)
+        .filter(models.Checkin.user_id == current_user.id)
+        .filter(models.Checkin.date >= window_start)
+        .filter(models.Checkin.date <= today)
+        .count()
+    )
+
+    # AI events in window (inclusive)
+    start_dt = datetime.combine(window_start, time.min)
+    end_dt = datetime.combine(today, time.max)
+
+    ai_events_window = (
+        db.query(models.AIRequestEvent)
+        .filter(models.AIRequestEvent.user_id == current_user.id)
+        .filter(models.AIRequestEvent.created_at >= start_dt)
+        .filter(models.AIRequestEvent.created_at <= end_dt)
+        .all()
+    )
+
+    latencies = [int(e.latency_ms) for e in ai_events_window if e.latency_ms is not None]
+    ai_count_window = len(ai_events_window)
+    avg_latency = (sum(latencies) / len(latencies)) if latencies else None
+    p95_latency = _p95(latencies)
+
+    return {
+        "date_utc": str(today),
+        "window_days": days,
+        "window_start_utc": str(window_start),
+        "checkins_window": checkins_window,
+        "ai_suggestions_count_window": ai_count_window,
+        "ai_suggestions_latency_ms_avg_window": round(avg_latency, 2) if avg_latency is not None else None,
+        "ai_suggestions_latency_ms_p95_window": p95_latency,
+        "subscription_tier": getattr(current_user, "subscription_tier", "free"),
+    }

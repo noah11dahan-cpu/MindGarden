@@ -1,5 +1,13 @@
 import React from "react";
-import { apiFetch, getAiSuggestion } from "../lib/api";
+import {
+  apiFetch,
+  getAiSuggestion,
+  ApiError,
+  deepDive,
+  exportReflections,
+  metricsAnalytics,
+  getTier,
+} from "../lib/api";
 import type { RetrievedReflection } from "../lib/api";
 import { CONFIG } from "../config";
 import { todayISO } from "../lib/date";
@@ -22,6 +30,19 @@ export function DashboardPage() {
 
   // Day 8: RAG memories shown in UI
   const [aiMemories, setAiMemories] = React.useState<RetrievedReflection[]>([]);
+
+  // NEW (Day 11 Premium UI state)
+  const [tier, setTier] = React.useState<"free" | "premium">(getTier());
+  const [premiumStatus, setPremiumStatus] = React.useState("");
+  const [deepDiveTopic, setDeepDiveTopic] = React.useState("sleep");
+  const [deepDiveResponse, setDeepDiveResponse] = React.useState<string | null>(null);
+
+  const [exportStatus, setExportStatus] = React.useState("");
+  const [exportCount, setExportCount] = React.useState<number | null>(null);
+
+  const [analyticsDays, setAnalyticsDays] = React.useState<number>(7);
+  const [analyticsStatus, setAnalyticsStatus] = React.useState("");
+  const [analyticsData, setAnalyticsData] = React.useState<any>(null);
 
   const habitNameById = React.useMemo(() => {
     const m: Record<number, string> = {};
@@ -50,6 +71,17 @@ export function DashboardPage() {
 
   React.useEffect(() => {
     loadHabits();
+  }, []);
+
+  // NEW: keep tier synced (even if upgraded in NavBar)
+  React.useEffect(() => {
+    const onStorage = (e: StorageEvent) => {
+      if (e.key === "mg_tier") {
+        setTier(e.newValue === "premium" ? "premium" : "free");
+      }
+    };
+    window.addEventListener("storage", onStorage);
+    return () => window.removeEventListener("storage", onStorage);
   }, []);
 
   function toggle(habitId: number) {
@@ -100,9 +132,74 @@ export function DashboardPage() {
     }
   }
 
+  // NEW: premium actions
+  async function runDeepDive() {
+    setPremiumStatus("Running deep dive...");
+    setDeepDiveResponse(null);
+    try {
+      const data = await deepDive(deepDiveTopic);
+      setDeepDiveResponse(data.response);
+      setPremiumStatus("");
+    } catch (e: any) {
+      if (e instanceof ApiError && e.status === 403) {
+        setPremiumStatus("🔒 Premium feature. Use Upgrade in the nav to unlock.");
+      } else {
+        setPremiumStatus(formatErr(e));
+      }
+    }
+  }
+
+  async function runExport() {
+    setExportStatus("Exporting reflections...");
+    setExportCount(null);
+    try {
+      const data = await exportReflections();
+      setExportCount(data.count);
+      setExportStatus("");
+
+      // Auto-download JSON (recruiter-friendly demo)
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "mindgarden_reflections_export.json";
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch (e: any) {
+      if (e instanceof ApiError && e.status === 403) {
+        setExportStatus("🔒 Premium feature. Use Upgrade in the nav to unlock export.");
+      } else {
+        setExportStatus(formatErr(e));
+      }
+    }
+  }
+
+  async function loadAnalytics() {
+    setAnalyticsStatus("Loading analytics...");
+    setAnalyticsData(null);
+    try {
+      const data = await metricsAnalytics(analyticsDays);
+      setAnalyticsData(data);
+      setAnalyticsStatus("");
+      // update tier if backend reports it
+      const t = data.subscription_tier === "premium" ? "premium" : "free";
+      setTier(t);
+    } catch (e: any) {
+      if (e instanceof ApiError && e.status === 403) {
+        setAnalyticsStatus("🔒 Premium feature. Free is limited to 30 days.");
+      } else {
+        setAnalyticsStatus(formatErr(e));
+      }
+    }
+  }
+
   return (
     <div className="page">
       <h2>Dashboard</h2>
+
+      <div className="muted" style={{ marginBottom: 10 }}>
+        Plan: <strong>{tier === "premium" ? "Premium" : "Free"}</strong>
+      </div>
 
       <div className="grid">
         <div className="card">
@@ -205,6 +302,71 @@ export function DashboardPage() {
                       ))}
                     </div>
                   )}
+                </div>
+
+                {/* NEW: Premium panel */}
+                <div style={{ marginTop: 14 }}>
+                  <div className="label">Premium features</div>
+
+                  <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 8 }}>
+                    <input
+                      value={deepDiveTopic}
+                      onChange={(e) => setDeepDiveTopic(e.target.value)}
+                      placeholder="Deep dive topic (e.g., sleep)"
+                      style={{ flex: 1, minWidth: 220 }}
+                    />
+                    <button type="button" onClick={runDeepDive}>
+                      Deep Dive (premium)
+                    </button>
+                    <button type="button" onClick={runExport}>
+                      Export Reflections (premium)
+                    </button>
+                  </div>
+
+                  {premiumStatus && <div className="status">{premiumStatus}</div>}
+
+                  {exportStatus && <div className="status">{exportStatus}</div>}
+                  {exportCount !== null && (
+                    <div className="muted" style={{ marginTop: 6 }}>
+                      Exported reflections: <strong>{exportCount}</strong> (downloaded as JSON)
+                    </div>
+                  )}
+
+                  {deepDiveResponse && (
+                    <div className="card" style={{ marginTop: 10 }}>
+                      <div className="card-header">
+                        <h3>Deep Dive</h3>
+                        <div className="muted" style={{ fontSize: 13 }}>
+                          Topic: {deepDiveTopic || "—"}
+                        </div>
+                      </div>
+                      <div style={{ paddingTop: 8 }}>{deepDiveResponse}</div>
+                    </div>
+                  )}
+
+                  <div style={{ marginTop: 12 }}>
+                    <div className="label">Long-term analytics</div>
+                    <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 6, alignItems: "center" }}>
+                      <select value={analyticsDays} onChange={(e) => setAnalyticsDays(Number(e.target.value))}>
+                        <option value={7}>7 days</option>
+                        <option value={30}>30 days</option>
+                        <option value={60}>60 days (premium)</option>
+                        <option value={90}>90 days (premium)</option>
+                      </select>
+                      <button type="button" onClick={loadAnalytics}>
+                        Load analytics
+                      </button>
+                    </div>
+
+                    {analyticsStatus && <div className="status">{analyticsStatus}</div>}
+                    {analyticsData && (
+                      <div className="muted" style={{ marginTop: 6 }}>
+                        Window start: {analyticsData.window_start_utc} • Check-ins:{" "}
+                        <strong>{analyticsData.checkins_window}</strong> • AI calls:{" "}
+                        <strong>{analyticsData.ai_suggestions_count_window}</strong>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             )}

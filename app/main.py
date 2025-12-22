@@ -17,6 +17,9 @@ from .routes_rag import router as rag_router
 from .routes_metrics import router as metrics_router
 from .observability.logging_config import configure_logging
 from .observability.middleware import RequestLoggingMiddleware
+from .routes_billing import router as billing_router
+from .routes_export import router as export_router
+
 
 class HealthStatus(BaseModel):
     status: str
@@ -70,4 +73,6 @@ app.include_router(checkins_router)
 app.include_router(insights_router)
 app.include_router(ai_router)
 app.include_router(rag_router)
-app.include_router(metrics_router)  # NEW (Day 10)
+app.include_router(metrics_router)
+app.include_router(billing_router)
+app.include_router(export_router)
