@@ -1,0 +1,51 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: mindgarden
+      POSTGRES_PASSWORD: mindgarden
+      POSTGRES_DB: mindgarden
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mindgarden -d mindgarden"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  api:
+    build: .
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8001:8001"
+
+  worker:
+    build: .
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+    command: ["sh", "-c", "while true; do python -m app.daily_insights_worker; sleep 300; done"]
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    depends_on:
+      - api
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_BASE_URL=http://localhost:8001
+    command: ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "5173"]
+
+volumes:
+  postgres_data:
