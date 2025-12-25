@@ -13,3 +13,4 @@ python-jose
 numpy
 faiss-cpu
 sentence-transformers
+psycopg2-binary

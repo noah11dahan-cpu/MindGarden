@@ -8,6 +8,8 @@ from sqlalchemy.orm import Session
 
 from .db import get_db
 from . import models
+from datetime import date as date_type
+from sqlalchemy import func
 
 # NEW (Day 11 Monetization hooks)
 from .security import get_current_user
@@ -36,7 +38,11 @@ def metrics(
     - /metrics?format=prometheus
     """
 
-    today = datetime.utcnow().date()
+    # IMPORTANT: check-in "date" is a date field users submit (local day).
+    # Using UTC date can be "tomorrow" in the evening and breaks the "today" counter.
+    today = date_type.today()
+    today_utc = datetime.utcnow().date()
+
     start_dt = datetime.combine(today, time.min)
     end_dt = start_dt + timedelta(days=1)
 
@@ -54,7 +60,7 @@ def metrics(
     p95_latency = _p95(latencies)
 
     payload = {
-        "date_utc": str(today),
+        "date_utc": str(today_utc),
         "checkins_today": checkins_today,
         "ai_suggestions_count_today": ai_count_today,
         "ai_suggestions_latency_ms_avg_today": round(avg_latency, 2) if avg_latency is not None else None,

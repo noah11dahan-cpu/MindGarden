@@ -5,6 +5,11 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from sqlalchemy import text
+import os
+
+from fastapi.openapi.docs import get_swagger_ui_html, get_redoc_html
+from fastapi.openapi.utils import get_openapi
+from fastapi.responses import JSONResponse
 
 from .db import engine, Base
 from . import models  # ensure models are imported so tables are registered
@@ -32,10 +37,17 @@ async def lifespan(app: FastAPI):
     yield
 
 
+# IMPORTANT:
+# We explicitly control docs + openapi endpoints so they work for:
+#   - direct backend: /docs + /openapi.json
+#   - proxied backend under /api: /api/docs + /api/openapi.json
 app = FastAPI(
     title="MindGarden API",
     version="0.1.0",
     lifespan=lifespan,
+    docs_url=None,
+    redoc_url=None,
+    openapi_url=None,
 )
 
 # NEW (Day 10): logging config + request timing/user logging middleware
@@ -50,6 +62,58 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# --- OpenAPI schema (shared) ---
+def _build_openapi_schema():
+    return get_openapi(
+        title=app.title,
+        version=app.version,
+        routes=app.routes,
+    )
+
+
+@app.get("/openapi.json", include_in_schema=False)
+def openapi_json():
+    return JSONResponse(_build_openapi_schema())
+
+
+@app.get("/api/openapi.json", include_in_schema=False)
+def openapi_json_api():
+    return JSONResponse(_build_openapi_schema())
+
+
+# --- Swagger UI ---
+@app.get("/docs", include_in_schema=False)
+def swagger_ui():
+    return get_swagger_ui_html(
+        openapi_url="/openapi.json",
+        title="MindGarden API - Swagger UI",
+    )
+
+
+@app.get("/api/docs", include_in_schema=False)
+def swagger_ui_api():
+    return get_swagger_ui_html(
+        openapi_url="/api/openapi.json",
+        title="MindGarden API - Swagger UI",
+    )
+
+
+# --- ReDoc (optional, but nice) ---
+@app.get("/redoc", include_in_schema=False)
+def redoc():
+    return get_redoc_html(
+        openapi_url="/openapi.json",
+        title="MindGarden API - ReDoc",
+    )
+
+
+@app.get("/api/redoc", include_in_schema=False)
+def redoc_api():
+    return get_redoc_html(
+        openapi_url="/api/openapi.json",
+        title="MindGarden API - ReDoc",
+    )
 
 
 @app.get("/")
@@ -76,3 +140,6 @@ app.include_router(rag_router)
 app.include_router(metrics_router)
 app.include_router(billing_router)
 app.include_router(export_router)
+if os.getenv("ENABLE_DEV_ROUTES", "0") == "1":
+    from .routes_dev import router as dev_router
+    app.include_router(dev_router)

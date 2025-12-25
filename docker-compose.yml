@@ -22,8 +22,9 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    ports:
-      - "8001:8001"
+    # IMPORTANT: no host port exposure
+    expose:
+      - "8001"
 
   worker:
     build: .
@@ -41,11 +42,22 @@ services:
       dockerfile: Dockerfile
     depends_on:
       - api
-    ports:
-      - "5173:5173"
+    # IMPORTANT: no host port exposure
+    expose:
+      - "5173"
     environment:
-      - VITE_API_BASE_URL=http://localhost:8001
+      - VITE_API_BASE=/api
     command: ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "5173"]
+
+  proxy:
+    image: caddy:2-alpine
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+    depends_on:
+      - api
+      - frontend
 
 volumes:
   postgres_data:
