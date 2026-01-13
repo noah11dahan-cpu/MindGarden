@@ -70,19 +70,6 @@ docker compose up -d --build
 
 ---
 
-## Environment Variables (.env)
-
-DB_URL=postgresql+psycopg2://mindgarden:mindgarden@db:5432/mindgarden  
-SECRET_KEY=change-me  
-MODEL_PATH=./models/your-model.gguf  
-
-Optional (only if your dev seed route enforces a header):  
-DEV_SEED_KEY=dev  
-
-Important note: when running with Docker Compose, the database host must be `db`, not `localhost`.
-
----
-
 ## Accessing the App
 
 App: http://localhost:8080  
