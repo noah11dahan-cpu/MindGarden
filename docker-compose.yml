@@ -17,17 +17,17 @@ services:
 
   api:
     build: .
+    image: mindgarden-app:latest
     env_file:
       - .env
     depends_on:
       db:
         condition: service_healthy
-    # IMPORTANT: no host port exposure
     expose:
       - "8001"
 
   worker:
-    build: .
+    image: mindgarden-app:latest
     env_file:
       - .env
     depends_on:
@@ -35,6 +35,7 @@ services:
         condition: service_healthy
     command: ["sh", "-c", "while true; do python -m app.daily_insights_worker; sleep 300; done"]
     restart: unless-stopped
+
 
   frontend:
     build:
